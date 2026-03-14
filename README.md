@@ -58,10 +58,9 @@ For easy downloading use the following link that already contains the zipped dat
 ├── main.py              # Central running file
 ├── utils.py             # Central helper functions, data loading and feature construction
 ├── requirements.txt
-├── scripts/
-│   ├── unsupervised.py  # Hierarchical clustering and TAR biomarker discovery
-│   ├── supervised.py    # Traditional ML (RF, SVM) for cognitive staging
-│   └── cnn.py           # Deep learning approach for raw EEG classification
+├── unsupervised.py  # Hierarchical clustering and TAR biomarker discovery
+├── supervised.py    # Traditional ML (RF, SVM) for cognitive staging
+├── cnn.py           # Deep learning approach for raw EEG classification
 ├── notebooks/           # optional (for exploration)
 │   ├── unsupervised.ipynb
 │   ├── supervised.ipynb
