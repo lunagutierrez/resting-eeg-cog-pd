@@ -3,6 +3,8 @@ pandas
 scikit-learn
 matplotlib
 seaborn
+plotly
+umap
 mne
 gdown
 shap
