@@ -1,6 +1,6 @@
-from scripts.unsupervised import run_unsupervised
-from scripts.supervised import run_supervised
-from scripts.cnn import run_cnn
+from unsupervised import run_unsupervised
+from supervised import run_supervised
+from cnn import run_cnn
 
 
 def main():
