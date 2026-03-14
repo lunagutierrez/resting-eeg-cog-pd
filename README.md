@@ -11,7 +11,7 @@ This project evaluates both:
 * Whether EEG can *predict* diagnosis and cognition
 * Whether EEG exhibits *intrinsic latent structure* aligned with clinical phenotypes
   
-## Project Structure
+## Project Description
 
 Two parallel but complementary analytical routes:
 
@@ -71,7 +71,7 @@ For easy downloading use the following link that already contains the zipped dat
 ```
 
 ## Data Configuration (Google Drive)
-The notebooks are designed to work with the OpenNeuro ds004584 dataset structure. The notebooks automatically download the data zip for their use once they are ran. The zip file structure is as follows:
+The notebooks are designed to work with the OpenNeuro ds004584 dataset structure. The project's pipeline automatically downloads the data zip for their use once they are ran. The zip file structure is as follows:
 
 ```
 data
@@ -89,6 +89,16 @@ data
 │       
 └── ...                         # Remaining subject folders
 ```
+## Running the project
+```bash
+git clone https://github.com/lunagutierrez/resting-eeg-cog-pd.git
+cd eeg-ml-project
+
+pip install -r requirements.txt
+
+python main.py
+```
+---
 
 ## Citation
 
