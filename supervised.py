@@ -748,8 +748,8 @@ def run_supervised():
             )
             importances = result.importances_mean
     
-        # 3. Dynamic Name Reconstruction (Matches your Extraction Logic)
-        channels = common_channels
+        # 3. Dynamic Name Reconstruction
+        channels = utils.SELECTED_CHANNELS
     
         if family_name == "low_freq":
             # 24 Band Powers + 8 TARs + 1 Global
@@ -777,8 +777,6 @@ def run_supervised():
         plt.tight_layout()
         plt.show()
     
-    # --- Execution ---
-    # Note: profile_cols is no longer needed as an argument because we rebuild it
     plot_top_features_fixed(best_pd.FeatureFamily, best_pd.Model, X_best_pd, y_pd_task, "PD vs. HC")
     plot_top_features_fixed(best_cog.FeatureFamily, best_cog.Model, X_best_cog, y_binary, "Cognitive Impairment")
     
@@ -803,20 +801,20 @@ def run_supervised():
         pipeline.fit(X, y)
         model_step = pipeline.named_steps['model']
     
-        # 2. Extract importance based on model type (supports GBM/RF or SVM)
+        # 2. Extract importance based on model type
         if hasattr(model_step, 'feature_importances_'):
             importances = model_step.feature_importances_
         elif hasattr(model_step, 'coef_'):
             importances = np.abs(model_step.coef_[0])
         else:
             from sklearn.inspection import permutation_importance
-            # Use scoring='roc_auc' to align with your CV metric
+            # Use scoring='roc_auc' to align with CV metric
             result = permutation_importance(pipeline, X, y, n_repeats=10,
                                             random_state=RANDOM_STATE, n_jobs=-1, scoring='roc_auc')
             importances = result.importances_mean
     
         # 3. Dynamic Name Reconstruction to match the feature matrix shape
-        channel_list = ['F3', 'F4', 'C3', 'C4', 'P3', 'P4', 'O1', 'O2']
+        channel_list = utils.SELECTED_CHANNELS
     
         if family_name == "low_freq":
             # Bands (24) + TARs (8) + Global (1) = 33
